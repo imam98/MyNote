@@ -13,7 +13,7 @@ namespace MyNote
 		{
 			InitializeComponent();
 
-			MainPage = new MyNote.MainPage();
+			MainPage = new NavigationPage(new MyNote.MainPage());
 		}
 
 		protected override void OnStart ()

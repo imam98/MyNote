@@ -95,7 +95,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentEditorRendererDroid.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PreviewLabelRendererDroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

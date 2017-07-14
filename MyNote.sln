@@ -15,6 +15,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MyNote\MyNote\MyNote.projitems*{1db142c2-20d2-423c-831a-6e2941e6eaab}*SharedItemsImports = 4
 		MyNote\MyNote\MyNote.projitems*{2f428073-1b15-4b14-8a1f-03d61253d4d3}*SharedItemsImports = 4
+		MyNote\MyNote\MyNote.projitems*{a5909a2f-1593-4f59-ad6f-fb5ef91fab57}*SharedItemsImports = 4
 		MyNote\MyNote\MyNote.projitems*{f4bdb024-0591-4788-8ab9-3e7f7f0caf1f}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
