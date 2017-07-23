@@ -12,9 +12,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)CustomControl\ContentEditor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CustomControl\PreviewLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\ContentEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\PreviewLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModels\Note.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

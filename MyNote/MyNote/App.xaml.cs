@@ -9,12 +9,26 @@ namespace MyNote
 {
 	public partial class App : Application
 	{
+        private static DataServices dbUtils;
+
 		public App ()
 		{
 			InitializeComponent();
 
 			MainPage = new NavigationPage(new MyNote.MainPage());
 		}
+
+        public static DataServices DBUtils
+        {
+            get
+            {
+                if (dbUtils == null)
+                {
+                    dbUtils = new DataServices();
+                }
+                return dbUtils;
+            }
+        }
 
 		protected override void OnStart ()
 		{

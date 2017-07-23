@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace MyNote.CustomControl
+namespace MyNote.CustomControls
 {
     public class ContentEditor : Editor
     {

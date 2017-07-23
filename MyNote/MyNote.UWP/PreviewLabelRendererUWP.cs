@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
-using MyNote.CustomControl;
+using MyNote.CustomControls;
 using MyNote.UWP;
 
 [assembly: ExportRenderer(typeof(PreviewLabel), typeof(PreviewLabelRendererUWP))]

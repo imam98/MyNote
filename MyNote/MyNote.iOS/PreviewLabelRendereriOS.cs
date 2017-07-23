@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using MyNote.CustomControl;
+using MyNote.CustomControls;
 using MyNote.iOS;
 
 [assembly: ExportRenderer(typeof(PreviewLabel), typeof(PreviewLabelRendereriOS))]

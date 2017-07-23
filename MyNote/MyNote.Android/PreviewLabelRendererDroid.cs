@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using MyNote.CustomControl;
+using MyNote.CustomControls;
 using MyNote.Droid;
 
 [assembly: ExportRenderer(typeof(PreviewLabel), typeof(PreviewLabelRendererDroid))]

@@ -10,36 +10,30 @@ namespace MyNote
 {
 	public partial class MainPage : ContentPage
 	{
+        public static List<Note> ListOfNotes;
+
 		public MainPage()
 		{
 			InitializeComponent();
-            BindingContext = new ListOfNotes();
-		}
+            ListOfNotes = App.DBUtils.GetNotesList();
+            NotesList.ItemsSource = ListOfNotes;
+        }
 
         private async void OnAddNote_Clicked(object sender, EventArgs e)
         {
             var notePage = new NotePage();
             await Navigation.PushModalAsync(notePage);
         }
-	}
 
-    public class ListOfNotes : BindableObject
-    {
-        private List<Note> notesList;
-        public List<Note> NotesList
+        private async void OnNote_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            get { return notesList; }
-            set { notesList = value; OnPropertyChanged("NotesList"); }
-        }
-
-        public ListOfNotes()
-        {
-            notesList = new List<Note>
+            if (e.SelectedItem != null)
             {
-                new Note {Title = "ABC", NotePreview = "aeddasaesnxsian\njliuok\njuhy", Created = DateTime.Now},
-                new Note {Title = "ASE", NotePreview = "tersuasnxiebwisawsadsidnijonxknaskoqwokskalmxnkalnonwpoqjejifndoewiriojdnsclnlalswqo", Created = DateTime.Now},
-                new Note {Title = "ASE", NotePreview = "tersuasnxiebwisawsadsidnijonxknaskoqwokskalmxnkalnonwp papsdkxkjdoiewojx aspdkoewodjdncweodjasodkwjsmax sdfedacaswdersdcdsda", Created = DateTime.Now}
-            };
+                var note = (Note)e.SelectedItem;
+                var notePage = new NotePage(note);
+                await Navigation.PushModalAsync(notePage);
+                ((ListView)sender).SelectedItem = null;
+            }
         }
-    }
+	}
 }
