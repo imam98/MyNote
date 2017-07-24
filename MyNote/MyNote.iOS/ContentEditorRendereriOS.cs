@@ -15,7 +15,7 @@ namespace MyNote.iOS
         protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
-            
+
             if (Control != null)
             {
                 Control.Layer.BorderWidth = 0;

@@ -10,17 +10,17 @@ using MyNote.DataModels;
 
 namespace MyNote
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NotePage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NotePage : ContentPage
+    {
         private bool isNew;
         private Note mNote;
 
-		public NotePage ()
-		{
-			InitializeComponent ();
+        public NotePage()
+        {
+            InitializeComponent();
             isNew = true;
-		}
+        }
 
         public NotePage(Note note)
         {

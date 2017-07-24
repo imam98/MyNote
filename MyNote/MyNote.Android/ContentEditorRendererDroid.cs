@@ -22,7 +22,7 @@ namespace MyNote.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
-            
+
             if (Control != null)
             {
                 Control.Background = null;

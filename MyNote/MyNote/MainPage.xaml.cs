@@ -8,13 +8,13 @@ using MyNote.DataModels;
 
 namespace MyNote
 {
-	public partial class MainPage : ContentPage
-	{
+    public partial class MainPage : ContentPage
+    {
         public static List<Note> ListOfNotes;
 
-		public MainPage()
-		{
-			InitializeComponent();
+        public MainPage()
+        {
+            InitializeComponent();
             ListOfNotes = App.DBUtils.GetNotesList();
             NotesList.ItemsSource = ListOfNotes;
         }
@@ -35,5 +35,5 @@ namespace MyNote
                 ((ListView)sender).SelectedItem = null;
             }
         }
-	}
+    }
 }

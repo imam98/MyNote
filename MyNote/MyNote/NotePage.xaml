@@ -10,5 +10,5 @@
             <custom:ContentEditor x:Name="NoteEditor" FontSize="16" VerticalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
-    
+
 </ContentPage>

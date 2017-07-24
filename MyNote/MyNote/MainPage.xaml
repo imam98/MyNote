@@ -10,7 +10,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="AddNote" Text="+" Clicked="OnAddNote_Clicked"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <ListView x:Name="NotesList" RowHeight="120" SeparatorVisibility="None" ItemSelected="OnNote_ItemSelected">
             <ListView.ItemTemplate>
@@ -49,8 +49,8 @@
                                                      HorizontalOptions="Start"
                                                      Margin="0, 0, 10, 0"/>
 
-                                </StackLayout>
-                            
+                            </StackLayout>
+
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

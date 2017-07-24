@@ -22,7 +22,7 @@ namespace MyNote.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);
-            
+
             if (Control != null)
             {
                 var baseLabel = (PreviewLabel)this.Element;

@@ -16,7 +16,7 @@ namespace MyNote.UWP
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);
-            
+
             if (Control != null)
             {
                 Control.TextTrimming = Windows.UI.Xaml.TextTrimming.CharacterEllipsis;
