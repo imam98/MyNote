@@ -19,7 +19,7 @@ namespace MyNote
 
         public List<Note> GetNotesList()
         {
-            return dbConn.Query<Note>("SELECT * FROM [Note] ORDER BY [Created]");
+            return dbConn.Query<Note>("SELECT * FROM [Note] ORDER BY [Created] DESC");
         }
 
         public int SaveNote(Note note)

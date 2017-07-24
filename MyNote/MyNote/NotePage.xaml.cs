@@ -19,7 +19,7 @@ namespace MyNote
 		public NotePage ()
 		{
 			InitializeComponent ();
-            isNew = false;
+            isNew = true;
 		}
 
         public NotePage(Note note)
@@ -28,12 +28,12 @@ namespace MyNote
             mNote = note;
             TitleEntry.Text = note.Title;
             NoteEditor.Text = note.Content;
-            isNew = true;
+            isNew = false;
         }
 
         protected override async void OnDisappearing()
         {
-            
+            base.OnDisappearing();
 
             var title = TitleEntry.Text;
             var content = NoteEditor.Text;
@@ -46,13 +46,13 @@ namespace MyNote
                     {
                         if (isNew)
                         {
-                            Note note = new Note
+                            mNote = new Note()
                             {
                                 Title = title,
                                 Content = content,
                                 Created = DateTime.Now
                             };
-                            App.DBUtils.SaveNote(note);
+                            App.DBUtils.SaveNote(mNote);
                             MainPage.ListOfNotes = App.DBUtils.GetNotesList();
                         }
                         else
@@ -68,8 +68,6 @@ namespace MyNote
                     }
                 }
             }
-
-            base.OnDisappearing();
         }
     }
 }
