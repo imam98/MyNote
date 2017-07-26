@@ -20,6 +20,7 @@ namespace MyNote
         {
             InitializeComponent();
             isNew = true;
+            BackBtn.IsVisible = (Device.Idiom == TargetIdiom.Desktop) ? true : false;
         }
 
         public NotePage(Note note)
@@ -29,45 +30,64 @@ namespace MyNote
             TitleEntry.Text = note.Title;
             NoteEditor.Text = note.Content;
             isNew = false;
+            BackBtn.IsVisible = (Device.Idiom == TargetIdiom.Desktop) ? true : false;
         }
 
-        protected override async void OnDisappearing()
+        protected override bool OnBackButtonPressed()
         {
-            base.OnDisappearing();
-
             var title = TitleEntry.Text;
             var content = NoteEditor.Text;
-            if (!String.IsNullOrEmpty(title) || !String.IsNullOrEmpty(content))
+
+            Device.BeginInvokeOnMainThread(async () =>
             {
-                bool save = await DisplayAlert("Save Changes?", "Do you want to save these changes?", "Yes", "No");
-                if (save)
+                if (isNew)
                 {
-                    try
+                    if (!String.IsNullOrEmpty(title) || !String.IsNullOrEmpty(content))
                     {
-                        if (isNew)
-                        {
-                            mNote = new Note()
-                            {
-                                Title = title,
-                                Content = content,
-                                Created = DateTime.Now
-                            };
-                            App.DBUtils.SaveNote(mNote);
-                            MainPage.ListOfNotes = App.DBUtils.GetNotesList();
-                        }
-                        else
-                        {
-                            mNote.Title = title;
-                            mNote.Content = content;
-                            App.DBUtils.UpdateNote(mNote);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlert("ERROR", ex.Message, "OK");
+                        await save(title, content);
                     }
                 }
+                else
+                {
+                    if (mNote.Title != title || mNote.Content != content)
+                    {
+                        await save(title, content);
+                    }
+                }
+
+                base.OnBackButtonPressed();
+            });
+
+            return true;
+        }
+
+        private async Task save(string title, string content)
+        {
+            var accept = await DisplayAlert("Save Changes?", "Do you want to save these changes?", "Yes", "No");
+            if (accept)
+            {
+                if (isNew)
+                {
+                    mNote = new Note()
+                    {
+                        Title = title,
+                        Content = content,
+                        Created = DateTime.Now
+                    };
+                    App.DBUtils.SaveNote(mNote);
+                }
+                else
+                {
+                    mNote.Title = title;
+                    mNote.Content = content;
+                    App.DBUtils.UpdateNote(mNote);
+                }
             }
+        }
+
+        private void OnBackBtn_Clicked(object sender, EventArgs e)
+        {
+            OnBackButtonPressed();
         }
     }
 }

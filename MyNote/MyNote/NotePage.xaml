@@ -8,6 +8,11 @@
         <StackLayout Spacing="4">
             <Entry x:Name="TitleEntry" Placeholder="Note Title" FontSize="24"/>
             <custom:ContentEditor x:Name="NoteEditor" FontSize="16" VerticalOptions="FillAndExpand"/>
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="Brown" VerticalOptions="End">
+                <Button x:Name="BackBtn" Text="BACK" TextColor="White" HorizontalOptions="Start" BackgroundColor="Transparent" Clicked="OnBackBtn_Clicked"/>
+                <Label Text="Test" TextColor="White"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 

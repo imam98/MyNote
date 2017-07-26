@@ -10,13 +10,11 @@ namespace MyNote
 {
     public partial class MainPage : ContentPage
     {
-        public static List<Note> ListOfNotes;
+        private List<Note> ListOfNotes;
 
         public MainPage()
         {
             InitializeComponent();
-            ListOfNotes = App.DBUtils.GetNotesList();
-            NotesList.ItemsSource = ListOfNotes;
         }
 
         private async void OnAddNote_Clicked(object sender, EventArgs e)
@@ -34,6 +32,14 @@ namespace MyNote
                 await Navigation.PushModalAsync(notePage);
                 ((ListView)sender).SelectedItem = null;
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            ListOfNotes = App.DBUtils.GetNotesList();
+            NotesList.ItemsSource = ListOfNotes;
         }
     }
 }
